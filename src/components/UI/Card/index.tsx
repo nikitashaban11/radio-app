@@ -92,11 +92,11 @@ export const MediaCard = ({
       </CardContent>
       <CardActions sx={{ mt: 'auto', justifyContent: 'center' }}>
         <Button
-          size='small'
-          onClick={handleLearnMoreClick}
           aria-label={`Listen to ${name}`}
+          fullWidth
+          onClick={handleLearnMoreClick}
         >
-          Listen
+          Go to Station
         </Button>
       </CardActions>
     </Card>
