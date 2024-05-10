@@ -67,11 +67,13 @@ export const RadioPlayer = ({
   const handleVolumeChange = (_event: Event, newValue: number | number[]) => {
     const newVolume = Array.isArray(newValue) ? newValue[0] : newValue;
 
-    setVolume(newVolume);
+    setVolume(() => {
+      if (audioRef.current) {
+        audioRef.current.volume = newVolume / 100;
+      }
 
-    if (audioRef.current) {
-      audioRef.current.volume = volume / 100;
-    }
+      return newVolume;
+    });
   };
 
   const toggleMute = () => {
